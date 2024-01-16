@@ -22,7 +22,6 @@ class MarkAttendanceSerializer(serializers.ModelSerializer):
     def validate(self, data):
         status = data.get("status")
         leave_type = data.get("leave_type")
-        print(status)
 
         if status == "leave" and leave_type is None:
             raise serializers.ValidationError(
@@ -45,12 +44,10 @@ class AttendanceReportSerializer(serializers.Serializer):
         total_present = obj.get("total_present", 0)
         return total_leaves + total_present
 
-
     def get_attendance_percentage(self, obj):
-        total_days =  self.get_total_days(obj)
-        print(total_days)
+        total_days = self.get_total_days(obj)
         total_present = obj.get("total_present", 0)
         if total_days == 0:
             return 0
-        total=(total_present / total_days) * 100
+        total = (total_present / total_days) * 100
         return total
