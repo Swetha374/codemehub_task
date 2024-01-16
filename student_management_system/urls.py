@@ -26,9 +26,9 @@ from .views import index
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="albedo API",
+        title="student management API",
         default_version="v1",
-        description="API Documentation for albedo App",
+        description="API Documentation for student_management App",
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="developer@enfono.co.in"),
         license=openapi.License(name="BSD License"),
